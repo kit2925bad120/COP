@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TrackItRide — College Bus Management</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="loginView" class="login-view">
+  <div class="login-visual">
+    <div class="brand large"><span class="logo">🚌</span> TrackItRide</div>
+    <h1>Smart College Bus<br><span>Tracking & Management</span></h1>
+    <p>Live fleet visibility, safer boarding, intelligent routes and instant notifications in one place.</p>
+    <div class="login-stats"><div><b>24/7</b><small>Fleet visibility</small></div><div><b>98%</b><small>ETA accuracy</small></div><div><b>100%</b><small>Digital records</small></div></div>
+  </div>
+  <div class="login-card">
+    <div class="brand"><span class="logo">🚌</span> TrackItRide</div>
+    <h2>Welcome back</h2><p class="muted">Sign in to your transport portal</p>
+    <div class="demo-box"><b>Demo accounts</b><br>Admin: <code>admin</code> / <code>admin123</code><br>Student: <code>student</code> / <code>student123</code><br>Driver: <code>driver</code> / <code>driver123</code></div>
+    <form id="loginForm">
+      <label>Username<input id="username" required autocomplete="username" placeholder="Enter username"></label>
+      <label>Password<input id="password" required type="password" autocomplete="current-password" placeholder="Enter password"></label>
+      <div class="row between"><label class="check"><input type="checkbox" id="remember"> Remember me</label><a href="#" onclick="toast('Demo: contact transport office to reset your password')">Forgot password?</a></div>
+      <button class="primary full" type="submit">Sign in <span>→</span></button>
+      <div id="loginError" class="error"></div>
+    </form>
+    <p class="login-foot">Secure portal • Role-based access • Demo mode</p>
+  </div>
+</div>
+
+<div id="appView" class="app hidden">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand side-brand"><span class="logo">🚌</span><span>TrackItRide</span></div>
+    <div class="profile-mini"><div class="avatar" id="avatar">A</div><div><b id="sideName">Admin</b><small id="sideRole">Administrator</small></div></div>
+    <nav id="nav">
+      <button class="nav-item active" data-page="dashboard">▦ <span>Dashboard</span></button>
+      <button class="nav-item" data-page="tracking">◉ <span>Live Tracking</span><em class="live-dot"></em></button>
+      <button class="nav-item" data-page="routes">⌁ <span>Route Management</span></button>
+      <button class="nav-item" data-page="timings">◷ <span>Bus Timings</span></button>
+      <button class="nav-item" data-page="history">◴ <span>Trip History</span></button>
+      <button class="nav-item" data-page="boarding">✓ <span>Boarding</span></button>
+      <button class="nav-item" data-page="fees">₹ <span>Fees & Payments</span></button>
+      <button class="nav-item" data-page="alerts">⚠ <span>Alerts</span><b id="alertBadge">3</b></button>
+      <button class="nav-item" data-page="notifications">♢ <span>Notifications</span></button>
+    </nav>
+    <div class="side-bottom"><button class="nav-item" data-page="settings">⚙ <span>Settings</span></button><button class="logout" id="logout">↪ Logout</button></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" id="menuBtn">☰</button>
+      <div><div class="crumb">Transport / <b id="pageTitle">Dashboard</b></div><div id="clock" class="clock"></div></div>
+      <div class="top-actions"><button class="icon-btn" onclick="toggleTheme()" title="Theme">◐</button><button class="icon-btn notify-btn" onclick="showPage('notifications')">♢<span class="notification-ping"></span></button><div class="top-user"><div class="avatar small" id="topAvatar">A</div><span id="topName">Admin</span></div></div>
+    </header>
+    <section id="content" class="content"></section>
+  </main>
+</div>
+
+<div id="toastContainer"></div>
+<script src="app.js"></script>
+</body>
+</html>
